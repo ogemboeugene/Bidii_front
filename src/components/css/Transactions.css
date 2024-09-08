@@ -1,0 +1,239 @@
+.transactions {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+    padding: 16px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto; 
+}
+
+.main-content {
+    padding: 0;
+    margin-left: 0;
+}
+
+.table-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.fullscreen-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.table-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 0;
+}
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.filter-controls input[type="number"],
+.filter-controls input[type="date"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    flex: 1 1 auto; /* Ensure inputs resize with the screen */
+}
+
+.filter-controls button {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1 1 auto; /* Ensure buttons resize with the screen */
+}
+
+.filter-controls button:hover {
+    background-color: #0056b3;
+}
+
+.filter-icon {
+    margin-right: 8px;
+}
+
+.table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    min-width: 100%; /* Ensure the table takes up full width on small screens */
+}
+
+.table-header {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 1fr 1fr;
+    align-items: center;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.table-row {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 1fr 1fr;
+    padding: 8px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.table-row div {
+    padding: 4px 8px;
+}
+
+.table-row:hover {
+    background-color: #f9f9f9;
+}
+
+.table-container:-webkit-full-screen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.table-container:-moz-full-screen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.table-container:-ms-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.table-container:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.add-record-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0B63F8;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.add-record-icon {
+    margin-right: 8px;
+}
+
+.edit-icon {
+    color: #ffc107;
+}
+
+.delete-icon {
+    color: #dc3545;
+}
+
+.flagged-icon {
+    color: #28a745; /* Green color for flagged */
+}
+
+.unflagged-icon {
+    color: #dc3545; /* Red color for unflagged */
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: hidden; /* Avoid horizontal scroll */
+    }
+
+    .table {
+        min-width: 100%; /* Ensure full width on small screens */
+    }
+
+    .table-header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .filter-controls input[type="number"],
+    .filter-controls input[type="date"] {
+        font-size: 14px;
+    }
+
+    .filter-controls button {
+        font-size: 14px;
+        justify-content: center;
+    }
+
+    .add-record-button {
+        font-size: 14px;
+        padding: 8px;
+        margin-left: 0;
+    }
+}
+}
