@@ -26,12 +26,14 @@ const AddAdvanceForm = ({ onClose, onAdd, groupId }) => {
             'Content-Type': 'application/json'
           }
         });
-
+  
         if (response.ok) {
           const result = await response.json();
-          const uniqueMembers = Array.from(new Set(result.map(member => member.toLowerCase())));
-          setMembers(uniqueMembers);
-          setFilteredMembers(uniqueMembers);
+          console.log("Fetched members from backend:", result); // Log raw data
+  
+          // Directly set members without transforming case
+          setMembers(result);
+          setFilteredMembers(result);
         } else {
           const errorText = await response.text();
           console.error('Failed to fetch members:', response.status, response.statusText, errorText);
@@ -40,9 +42,10 @@ const AddAdvanceForm = ({ onClose, onAdd, groupId }) => {
         console.error('Error fetching members:', error);
       }
     };
-
+  
     fetchMembers();
   }, [apiUrl]);
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;

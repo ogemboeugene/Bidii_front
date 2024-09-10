@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTachometerAlt, faCompress, faExpand, faHistory, faMoneyBillWave, faBell, faCog, faSearch, faEdit, faChartLine, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTachometerAlt, faCompress, faBars, faExpand, faHistory, faMoneyBillWave, faBell, faCog, faSearch, faEdit, faChartLine, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Notification from "./Notification";
 import Groups from "./Groups"; 
 import AddMonthlyPerformanceForm from '../forms/AddMonthlyPerformanceForm';
@@ -22,6 +22,7 @@ const Dashboard = () => {
   const [selectedGroupId, setSelectedGroupId] = useState(null); // Add state for selected group ID
   const [selectedGroupName, setSelectedGroupName] = useState(''); // Add state for selected group name
   const [isFullScreen] = useState(false);
+  const [sidebarActive, setSidebarActive] = useState(false);
   const tableContainerRef = useRef(null);
   const [groupPerformances, setGroupPerformances] = useState([]);
   const [editingPerformanceId, setEditingPerformanceId] = useState(null);
@@ -160,6 +161,10 @@ const Dashboard = () => {
     setGroupPerformances(prevPerformances => [...prevPerformances, newPerformance]);
   };
   
+  const toggleSidebar = () => {
+    setSidebarActive(prev => !prev);
+  };
+
   const renderContent = () => {
     switch (activeComponent) {
       case 'dashboard':
@@ -332,7 +337,10 @@ const Dashboard = () => {
 
   return (
     <div className="admin">
-      <div className="sidebar">
+      <button className="sidebar-toggle" onClick={toggleSidebar}>
+        <FontAwesomeIcon icon={faBars} />
+      </button>
+      <div className={`sidebar ${sidebarActive ? 'active' : ''}`}>
         <div className="logo">
         <img src={Bidiilogo} alt="BIDII Logo" className="logo-image" />
           {/* <div className="text-wrapper-5">Logo</div> */}
