@@ -161,9 +161,9 @@ const Dashboard = () => {
     setGroupPerformances(prevPerformances => [...prevPerformances, newPerformance]);
   };
   
-  const toggleSidebar = () => {
-    setSidebarActive(prev => !prev);
-  };
+  // const toggleSidebar = () => {
+  //   setSidebarActive(prev => !prev);
+  // };
 
   const renderContent = () => {
     switch (activeComponent) {
@@ -334,12 +334,19 @@ const Dashboard = () => {
         return <div>Welcome to your dashboard!</div>;
     }
   };
+  
+
+  const toggleSidebar = () => {
+    setSidebarActive(!sidebarActive);
+  };
 
   return (
     <div className="admin">
-      <button className="sidebar-toggle" onClick={toggleSidebar}>
+       {/* Sidebar Toggle Button */}
+       <div className="sidebar-toggle" onClick={toggleSidebar}>
         <FontAwesomeIcon icon={faBars} />
-      </button>
+      </div>
+
       <div className={`sidebar ${sidebarActive ? 'active' : ''}`}>
         <div className="logo">
         <img src={Bidiilogo} alt="BIDII Logo" className="logo-image" />
@@ -395,7 +402,7 @@ const Dashboard = () => {
         {activeComponent !== 'transactions' && activeComponent !== 'notifications' && (
         <div className="header">
           <div className="welcome-message">
-            <h1>Welcome back, {current_user}</h1>
+            <h1>Welcome back, {current_user} </h1>
           </div>
           <div className="stats">
             <button className="stat-button pink">Total Loans<br />{totalLoans}</button>
